@@ -24,9 +24,52 @@
 # (добавьте проверки).
 # ✔ Существующие файлы не должны удаляться/изменяться в случае совпадения имён.
 
+from my_file_utils.pseudo_names import pseudo_names
+from random import randrange
+import os
 
-def create_file():
-    pass
 
-def create_file4():
-    pass
+# Задание 4 + 6
+def rnd_create_file(path: str, ext, n_min=6, n_max=30, min_byte=256, max_byte=4096, amount=42):
+    """
+    Функция создания файлов со случайными именами, случайного размера со случайным содержимым.
+    Если такой файл уже есть, то его не трогаем, обрабатываем следующий файл.
+    :param path: Путь, по которому нудно создавать файлы
+    :param ext: Расширение, которое будет присваиваться файлам
+    :param n_min: Минимальное количество символов в имени файла
+    :param n_max: Максимальное количество символов в имени файла
+    :param min_byte: Минимальное количество байт в файле
+    :param max_byte: Максимальное количество байт в файле
+    :param amount: Количество файлов, которое надо создать
+    :return: None
+    """
+    for i in range(amount):
+        name = pseudo_names(n_min, n_max, ext)
+        if not os.path.exists(path + name):
+            with open(path + os.sep + name, 'wb') as f:
+                f.write(os.getrandom(randrange(min_byte, max_byte)))
+
+
+# Задание 5
+def rnd_create_file_ext(path: str, ext_amount: dict):
+    """
+    Функция создания файлов с определенным расширением.
+    :param path: Путь, по которому нудно создавать файлы
+    :param ext_amount: Словарь (ключ - расширение файла, значение - количество таких файлов)
+    :return: None
+    """
+    for key, value in ext_amount.items():
+        rnd_create_file(path, key, amount=value)
+
+
+# Задание 6
+def create_file(path, ext_amount):
+    """
+    Функция создания файлов со случайными именами. Создает каталог, по указанному пути.
+    Если каталог существует - то просто создаем там файлы
+    :param path:
+    :param ext_amount:
+    :return: None
+    """
+    os.makedirs(path, exist_ok=True)
+    rnd_create_file_ext(path, ext_amount)

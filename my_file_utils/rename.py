@@ -16,14 +16,14 @@ def group_rename(path, file_name, nnums, in_ext, out_ext, name_range):
     Исходное имя файла: qwerty.zzz
     Конечное имя файла: rtygreat001.xxx
     """
-    files = list(os.walk(path))[-1][-1]   # список всех файлов в указанном каталоге
+    files = list(os.walk(path))[-1][-1]  # список всех файлов в указанном каталоге
     files = [f for f in files if "." + in_ext in f]  # фильтруем список, чтобы остались файлы с нужным расширением
 
     # делаем список новых имен файлов
-    new_files = [(files[i].split('.')[0][name_range[0]:name_range[1]] if range else '') + \
-                 file_name + \
-                 f"{i:0{nnums}}" + \
-                 "." + out_ext \
+    new_files = [(files[i].split('.')[0][name_range[0]:name_range[1]] if range else '') +
+                 file_name +
+                 f"{i:0{nnums}}" +
+                 "." + out_ext
                  for i in range(len(files))]
 
     try:  # Переименование файлов с обработкой ошибок

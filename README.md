@@ -27,3 +27,34 @@
 Пакет реализован в папке *my_file_utils*
 
 Примеры использования функций находятся в файле *main.py*
+
+#### Результат работы:
+
+Состояние папки ДО работы программы:
+
+    user@server:~/Work/Python/dz3/Py3HW07/ttest$ ls -la
+    итого 8
+    drwxrwxr-x 2 user user 4096 июн  8 18:15 .
+    drwxrwxr-x 8 user user 4096 июн  9 00:18 ..
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 file1.qqq
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 file2.aaa
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 q1w2e3r4asd.zzz
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 q1w2e3r4qwe.zzz
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 q1w2e3r4zxc.zzz
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 qwerty.zzz
+    user@server:~/Work/Python/dz3/Py3HW07/ttest$
+
+Состояние папки ПОСЛЕ работы программы:
+
+    user@server:~/Work/Python/dz3/Py3HW07/ttest$ ls -la
+    итого 8
+    drwxrwxr-x 2 user user 4096 июн  9 00:20 .
+    drwxrwxr-x 9 user user 4096 июн  9 00:20 ..
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 2e3ffile000.xxx
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 2e3ffile002.xxx
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 2e3ffile003.xxx
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 file1.qqq
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 file2.aaa
+    -rw-rw-r-- 1 user user    0 июн  8 18:15 rtyffile001.xxx
+    user@server:~/Work/Python/dz3/Py3HW07/ttest$ 
+
